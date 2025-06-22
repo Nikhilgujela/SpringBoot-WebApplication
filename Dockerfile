@@ -7,8 +7,6 @@ ARG artifact=target/spring-boot-web.jar
 
 WORKDIR /opt/app
 
-RUN PWD
-RUN ls -la
 
 COPY ${artifact} app.jar
 
