@@ -9,6 +9,8 @@ WORKDIR /opt/app
 
 RUN ls
 
+COPY . .
+
 COPY ${artifact} app.jar
 
 # This should not be changed
