@@ -49,7 +49,7 @@ pipeline {
         
         stage('Maven Build') {
             steps {
-                    sh "mvn clean compile"
+                    sh "mvn clean package"
             }
         }
         
@@ -58,8 +58,8 @@ pipeline {
                    script {
                        withDockerRegistry(credentialsId: 'b289dc43-2ede-4bd0-95e8-75ca26100d8d', toolName: 'docker') {
                             sh "docker build -t webapp ."
-                            sh "docker tag webapp adijaiswal/webapp:latest"
-                            sh "docker push adijaiswal/webapp:latest "
+                            sh "docker tag webapp nikhilgujela2/webapp:latest"
+                            sh "docker push nikhilgujela2/webapp:latest "
                         }
                    } 
             }
@@ -67,7 +67,7 @@ pipeline {
         
         stage('Docker Image scan') {
             steps {
-                    sh "trivy image adijaiswal/webapp:latest "
+                    sh "trivy image nikhilgujela2/webapp:latest "
             }
         }
         
