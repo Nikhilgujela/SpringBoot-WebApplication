@@ -30,7 +30,7 @@ pipeline {
         
         stage('Code Compile') {
             steps {
-                    bat "mvn clean package"
+                    bat "mvn package"
             }
         }
         
@@ -41,3 +41,7 @@ pipeline {
         }
     }
 }
+
+
+java -jar spring-boot-web.jar --server.port=8081
+
